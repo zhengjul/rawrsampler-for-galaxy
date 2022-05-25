@@ -1,0 +1,26 @@
+<tool id="rawrsampler" name="RAWR random sampler" version="0.1.0" python_template_version="3.5">
+    <requirements>
+        <requirement type="package" version="0.1.1">rawrsampler</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        rawrsampler alnfile treefile --verbose > outfile
+    ]]></command>
+    <inputs>
+        <param type="data" name="input1" format="fasta" />
+        <param type="data" name="input2" format="tree" />
+    </inputs>
+    <outputs>
+        <data name="output1" format="support.txt" from_work_dir="tree.support.txt" />
+    </outputs>
+    <tests>
+        <test>
+            <param name="input1" value="alignment.fasta"/>
+            <param name="input2" value="infer.tree"/>
+            <output name="output1" file="tree.support.txt"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+        [26937] Error loading Python lib '/home/kiki/Work/dist4/rawrsampler/libpython3.8.so.1.0': dlopen: /home/kiki/Work/dist4/rawrsampler/libpython3.8.so.1.0: cannot open shared object file: No such file or directory
+
+    ]]></help>
+</tool>

@@ -1,0 +1,37 @@
+{% set name = "rawrsampler" %}
+{% set version = "0.1.1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: /home/kiki/Work/dist4/rawrsampler.tar.gz
+  sha256: c27fbf594ebc35aacaedba38061e9ede70c8881e2df5f8bd4eb30b60296bb61e
+
+requirements:
+  build:
+    - python {{ python }}
+  run:
+    - python
+    - pandas
+    - "numpy>=1.14.6"
+    - "ete3>=3.1.2"
+    - scikit-learn
+    - "scipy>=1.1.0"
+    - "pyqt>=5.11.3"
+    - "biopython>=1.1.5"
+    - "flask>2.0.2"
+    - pathlib
+    - "pytz>=2021.3"
+    - "python-dateutil>=2.7.3"
+
+#rawrsampler:
+#  imports:
+#    - "{{ name|lower }}"
+
+about:
+  home: 
+  license: BSD
+  license_family: BSD
+  summary: "We provide two resampling algorithms here, RAndom Walk Resampling (RAWR) and SEquential RESampling (SERES), for performing support estimation for multiple sequence alignments and phylogenetic trees. "
