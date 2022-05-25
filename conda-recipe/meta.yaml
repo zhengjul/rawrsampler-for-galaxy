@@ -6,8 +6,9 @@ package:
   version: "{{ version }}"
 
 source:
-  url: /home/kiki/Work/dist4/rawrsampler.tar.gz
-  sha256: c27fbf594ebc35aacaedba38061e9ede70c8881e2df5f8bd4eb30b60296bb61e
+   git_url: https://github.com/zhengjul/rawrsampler-for-galaxy
+#  url: /home/kiki/Work/dist4/rawrsampler.tar.gz
+#  sha256: c27fbf594ebc35aacaedba38061e9ede70c8881e2df5f8bd4eb30b60296bb61e
 
 requirements:
   build:
