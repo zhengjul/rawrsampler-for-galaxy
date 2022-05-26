@@ -3,24 +3,60 @@
         <requirement type="package" version="0.1.1">rawrsampler</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        rawrsampler alnfile treefile --verbose > outfile
+        rawrsampler '$input1' '$input2' --verbose 
     ]]></command>
     <inputs>
         <param type="data" name="input1" format="fasta" />
         <param type="data" name="input2" format="tree" />
     </inputs>
     <outputs>
-        <data name="output1" format="support.txt" from_work_dir="tree.support.txt" />
     </outputs>
     <tests>
         <test>
             <param name="input1" value="alignment.fasta"/>
             <param name="input2" value="infer.tree"/>
-            <output name="output1" file="tree.support.txt"/>
         </test>
     </tests>
     <help><![CDATA[
-        [26937] Error loading Python lib '/home/kiki/Work/dist4/rawrsampler/libpython3.8.so.1.0': dlopen: /home/kiki/Work/dist4/rawrsampler/libpython3.8.so.1.0: cannot open shared object file: No such file or directory
+        usage: rawrsampler [-h] [--algorithm [ALGORITHM]] [--task [TASK]]
+                   [--path [PATH]] [--n [N]] [--rate [RATE]]
+                   [--numanchor [NUMANCHOR]] [--lenanchor [LENANCHOR]]
+                   [-seed SEED] [--mafft MAFFT] [--raxml RAXML] [--verbose]
+                   alnfile treefile
+
+RAndom Walk Resampling command line software for linux.
+
+positional arguments:
+  alnfile               <input> FASTA alignment file.
+  treefile              <input> Newick phylogeny tree file.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --algorithm [ALGORITHM]
+                        <optional> resampling algorithm choices [rawr, seres],
+                        default rawr.
+  --task [TASK]         <optional> output options: [tree, msa] Either outputs
+                        a phylogenetic tree using RAxML or a multiple sequence
+                        alignment support estimation, defaults to tree.
+  --path [PATH]         <optional> path to results directory, default
+                        output_{algorithm}.
+  --n [N]               <optional> total number of resampled sequences (min
+                        2), defaults to 10.
+  --rate [RATE]         <optional> reversal rate between [0, 1], defaults to
+                        0.1.
+  --numanchor [NUMANCHOR]
+                        <optional> SERES only. Represents number of anchors,
+                        defaults to 20.
+  --lenanchor [LENANCHOR]
+                        <optional> SERES only. Represents length of anchors,
+                        defaults to 5.
+  -seed SEED            <optional> set random seed
+  --mafft MAFFT         <optional> you can supply path to your own mafft if
+                        you do not want to use the standalone versions we
+                        supply.
+  --raxml RAXML         <optional> you can supply path to you own RAxML if you
+                        do not want to use the standalone versions we supply.
+  --verbose             <optional> prints verbose messages
 
     ]]></help>
 </tool>
